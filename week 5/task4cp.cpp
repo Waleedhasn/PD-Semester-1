@@ -4,7 +4,8 @@ using namespace std;
 
 string projectTimeCalculation(int hours, int days, int workers);
 
-int main() {
+int main() 
+{
     int hours, days, workers;
     cout << "Enter the needed hours: ";
     cin >> hours;
@@ -17,15 +18,16 @@ int main() {
     return 0;
 }
 
-string projectTimeCalculation(int hours, int days, int workers) {
+string projectTimeCalculation(int hours, int days, int workers)
+ {
     string result;
-    int effectiveDays = days * 0.9;
-    int totalHours = floor(effectiveDays * workers * 10);
+    int effectiveDays = days * 9 / 10;
+    int totalHours = effectiveDays * workers * 10;
 
     int hoursLeft = totalHours - hours;
     int additionalHours = hours - totalHours;
-
-    if (totalHours >= hours) {
+    if (totalHours >= hours)
+ {
         cout << "Yes! " << hoursLeft << " hours left." << endl;
     }
     if (totalHours < hours) {
