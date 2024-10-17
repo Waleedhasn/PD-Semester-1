@@ -17,6 +17,7 @@ void moveEnemyHorizontally();
 void moveEnemyDiagonally();
 void printMaze();
 void bonusPill();
+void displayScore();
 
 int bx = 50, by = 1; 
 int e1X = 120, e1Y = 10;
@@ -27,6 +28,7 @@ int e1Direc=1;
 int e2Direc=1;
 int e3DirecX=1;
 int e3DirecY=1;
+int score = 0;
 
 int main() 
 {
@@ -60,6 +62,8 @@ int main()
         moveEnemyVertically();
         moveEnemyHorizontally();
         moveEnemyDiagonally();
+        bonusPill();
+        displayScore();
         Sleep(200);
     }
 }
@@ -118,7 +122,7 @@ void printMaze() {
     cout << "##############################################################################################################################################"<< endl;
     cout << "#                                                                                                                                            #" << endl;
     cout << "#    player Health:                                                                    enemy health:                                         #" << endl;
-    cout << "#    Score:                                                                                                                                  #" << endl;
+    cout << "#                                                                                                                                            #" << endl;
     cout << "#                                                                                                                                            #" << endl;
     cout << "##############################################################################################################################################" << endl;
 }
@@ -218,25 +222,30 @@ void movePlayerDown() {
 void bonusPill()
 {
 gotoxy(bx,by);
-cout<<"               **** "<<endl;
+cout<<"   **** "<<endl;
 gotoxy(bx,by+1);
-cout<<"              *  *  "<<endl;
+cout<<"  *  *"<<endl;
 gotoxy(bx,by+2);
-cout<<"            *  *    "<<endl;
+cout<<" *  ******"<<endl;
 gotoxy(bx,by+3);
-cout<<"           *  ****** "<<endl;
+cout<<"* * *   *"<<endl;
 gotoxy(bx,by+4);
-cout<<"          * * *   * "<<endl;
+cout<<"   *  *"<<endl;
 gotoxy(bx,by+5);
-cout<<"              *  *  "<<endl;
-gotoxy(bx,by+6);
-cout<<"            *  *    "<<endl;
-gotoxy(bx,by+7);
-cout<<"           ****     "<<endl;
+cout<<"  ****"<<endl;
+    
 
 
 }
-
+void displayScore() 
+{
+      if (pX == bx && pY == by)
+    {
+        score = score + 10;
+    }
+    gotoxy(5, 29); 
+    cout << "Score: " << score;
+}
 char getCharAtxy(short int x, short int y) {
     CHAR_INFO ci;
     COORD xy = {0, 0};
