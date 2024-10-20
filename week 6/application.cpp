@@ -1,7 +1,6 @@
 #include <iostream>
 #include <conio.h>
 using namespace std;
-
 void selectOption(int option, string &name1, float &price1, int &quantity1, float &tax1, string &name2, float &price2, int &quantity2, float &tax2, string &name3, float &price3, int &quantity3, float &tax3);
 void printProductData(string name, float price, int quantity, float tax, float total);
 float calculateCostPerProduct(float price, int quantity, float tax);
@@ -13,44 +12,39 @@ string aName = "Waleed";
 int uPassword = 12345;
 int aPassword = 98765;
 int option;
-
-
-int main(){
-    
+string choice;
+main(){    
     string name1 = " ", name2 = " ", name3 = " ";
     float price1 = 10.0, price2 = 20.0, price3 = 30.0;
     int quantity1 = 0, quantity2 = 0, quantity3 = 0;
     float tax1 = 1.0, tax2 = 2.0, tax3 = 3.0;
     float total1 = 0.0, total2 = 0.0, total3 = 0.0;
- 
-    
-      
-        login();
-
-
-if(uName!="Ayan" || aName!="Waleed")
-{
-cout<<"User Not Found ! please sign-up first."<<endl;
-}
-if (uPassword!=12345 || aPassword!=98765)
-{
-cout << "Incorrect password !" <<endl;}
-else
-{
+    string choice;
+    login();
+if ((uName=="Ayan" && uPassword==12345) || (aName=="Waleed" && aPassword==98765))
+   {
+        while(true){
         printHeader();
         option = menu();
         selectOption(option, name1, price1, quantity1, tax1, name2, price2, quantity2, tax2, name3, price3, quantity3, tax3);
         cout << "Press any Key to Continue: ";
         getch();
         system("cls");
-    
-    }
-    return 0;
-}
+    }}
+else{
+if(uName!="Ayan" || aName!="Waleed")
+  {
+cout<<"User Not Found ! please sign-up first."<<endl;
+  }
+if (uPassword!=12345 || aPassword!=98765)
+  {
+cout << "Incorrect password !" <<endl;}
+  }
+} 
+
+
 void login()
 {
-int option;
-
 system("cls");
 cout<<"                     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ " <<endl;
 cout<<"                     $                                                                                              $ " <<endl;
@@ -84,9 +78,10 @@ cout<<"                     $                                                   
 cout<<"                     $                                                                                              $ " <<endl;
 cout<<"                     $                                                                                              $ " <<endl;
 cout<<"                     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ " <<endl;
-cout<<" Your option:";
-cin >> option;
-if(option==1)
+cout<<" Your choice:";
+cin >> choice;
+
+if(choice=="1")
 {
 system("cls");
 cout<<"              _____                                                                                   _____   " <<endl;
@@ -118,7 +113,7 @@ cin >> uName;
 cout <<"                Password:";
 cin >> uPassword;
 }
-if(option==2)
+if(choice=="2")
 {
 system("cls");
 cout<<"          _____                                                                                   _____  " <<endl;
@@ -151,13 +146,15 @@ cout <<"                Password:";
 cin >> aPassword;
 }
 
-
 if(uName!="Ayan" || aName!="Waleed")
 {
 cout<<"User Not Found ! please sign-up first."<<endl;
 
 
 }
+if (choice!="1" || choice!="2")
+{
+ cout << "Error!!";
 }
 
 void selectOption(int option, string &name1, float &price1, int &quantity1, float &tax1,
