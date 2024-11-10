@@ -38,7 +38,8 @@ cout<<"User Not Found ! please sign-up first."<<endl;
   }
 if (uPassword!=12345 || aPassword!=98765)
   {
-cout << "Incorrect password !" <<endl;}
+cout << "Incorrect password !" <<endl;
+}
   }
 } 
 
@@ -157,9 +158,7 @@ if (choice!="1" || choice!="2")
  cout << "Error!!";
 }
 
-void selectOption(int option, string &name1, float &price1, int &quantity1, float &tax1,
-                  string &name2, float &price2, int &quantity2, float &tax2,
-                  string &name3, float &price3, int &quantity3, float &tax3)
+void selectOption(int option, string &name1, float &price1, int &quantity1, float &tax1,string &name2, float &price2, int &quantity2, float &tax2, string &name3, float &price3, int &quantity3, float &tax3)
 {
     float total1, total2, total3;
     if (option == 1) {
